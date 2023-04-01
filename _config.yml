@@ -10,11 +10,10 @@ title:            Jacob Jones
 tagline:          'The portfolio of Jacob Jones'
 description:      'A full-stack software engineer hailing from Spokane, Washington.'
 url:              jacobjones.io
-baseurl:          /
+baseurl:          
 
 author:
   name:           'Jacob Jones'
-  url:            https://twitter.com/truejacobjones
 
 paginate:         5
 
