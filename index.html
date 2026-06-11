@@ -10,96 +10,45 @@ title: Home
 
 <div class="w3-container w3-card w3-white w3-margin-bottom">
   <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Work Experience</h2>
+  {% for job in site.data.resume.experience %}
   <div class="w3-container">
-    <h5 class="w3-opacity"><b>Software Engineer / <a href="https://www.saferidehealth.com" target="_blank">www.saferidehealth.com</a></b></h5>
-    <h6 class="w3-text-teal"><i class="fa fa-info-circle fa-fw w3-margin-right"></i>Transportation Orchestration Platform</h6>
-    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>July 2023 - <span class="w3-tag w3-teal w3-round">Now</span></h6>
+    <h5 class="w3-opacity"><b>{{ job.title }} / <a href="{{ job.url }}" target="_blank">{{ job.url | remove: "https://" }}</a></b></h5>
+    <h6 class="w3-text-teal"><i class="fa fa-info-circle fa-fw w3-margin-right"></i>{{ job.description }}</h6>
+    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ job.start }} - {% if job.end == "Present" %}<span class="w3-tag w3-teal w3-round">Now</span>{% else %}<span class="w3-tag w3-teal w3-round">{{ job.end }}</span>{% endif %}</h6>
     <ul>
-      <li>Microservices Architecture: Key player in efforts to scale and optimize our microservices architecture.</li>
-      <li>Laravel Development: Developed new features and resolved numerous bugs in <b>Laravel</b> ensuring the platform meets strict service level agreements.</li>
-      <li>Front-end Development: Developed and maintained user interfaces using <b>React</b>, often involving complex state management with technologies such as <b>Redux</b>, <b>Pusher</b>, and <b>web workers</b>.</li>
-      <li>Technical Debt Reduction: Took the initiative to address technical debt by standardizing the local development environment across the team. Implemented <b>Docker</b>-based solutions to ensure consistency, making it easier for developers to set up and work in a uniform environment.</li>
+      {% for item in job.highlights %}
+      <li>{{ item }}</li>
+      {% endfor %}
     </ul>
     <hr>
   </div>
-  <div class="w3-container">
-    <h5 class="w3-opacity"><b>Software Engineer II / <a href="https://www.junolive.com" target="_blank">www.junolive.com</a></b></h5>
-    <h6 class="w3-text-teal"><i class="fa fa-info-circle fa-fw w3-margin-right"></i>Digital Events/Community Platform</h6>
-    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>March 2021 - <span class="w3-tag w3-teal w3-round">April 2023</span></h6>
-    <ul>
-      <li>Authored an extensive <b>analytics</b> & reporting <b>API</b> that performs intricate <b>SQL</b> queries on <b>AWS Timestream</b>.
-        This powers an extensive dashboard consisting of various graphs, metrics, and a customizable report builder.</li>
-      <li>Developed a configurable <b>Oauth SSO</b> solution in <b>PHP</b> to interface with numerous identity providers.</li>
-      <li>Wrote several <b>Python</b> modules to sync client data from various content management systems, which was
-        orchestrated by <b>AWS Elastic Container Service</b> and <b>Terraform</b> config files.</li>
-      <li>Aided the development of generic <b>REST APIs</b> using <b>Django</b> that allow clients to manage their data, slashing the client integration work load by <b>nearly 50%</b>.</li>
-      <li>Managed and debugged various services and components of infrastructure in <b>AWS</b> such as <b>ECS, CloudFront,
-        API Gateway, CloudWatch, Lambda, S3, SQS, Aurora, DynamoDB</b>.</li>
-    </ul>
-    <hr>
-  </div>
-  <div class="w3-container">
-    <h5 class="w3-opacity"><b>Freelance Software Engineer / <a href="https://www.themanshops.com" target="_blank">www.themanshops.com</a></b></h5>
-    <h6 class="w3-text-teal"><i class="fa fa-info-circle fa-fw w3-margin-right"></i>White-Label Point of Sale System</h6>
-    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>January 2018 - March 2021</h6>
-    <ul>
-      <li>Worked closely with salon employees, managers, and stakeholders to design and produce a contemporary
-        user interface that streamlines business procedures using <b>JavaFX</b>.</li>
-      <li>Assisted in the architecture of this system from the ground up which now serves <b>thousands of transactions</b>
-        across a dozen salons every single day.</li>
-      <li>Wrote business-critical reporting modules including payroll, taxes, commission, and tips.</li>
-      <li>Automated hundreds of hours of daily work by developing integrations with the services Paychex, Netspend,
-        and QuickBooks.</li>
-    </ul>          
-    <hr>
-  </div>
+  {% endfor %}
 </div>
 
 <div class="w3-container w3-card w3-white">
   <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-cloud fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Projects</h2>
+  {% for project in site.data.resume.projects %}
   <div class="w3-container">
-    <h5 class="w3-opacity"><b>Full-Stack Web Application / <a href="https://www.retainur.com" target="_blank">www.retainur.com</a></b></h5>
-    <h6 class="w3-text-teal"><i class="fa fa-info-circle fa-fw w3-margin-right"></i>Credit Card Management</h6>
-    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>In Progress</h6>
+    <h5 class="w3-opacity"><b>{{ project.title }}{% if project.url %} / <a href="{{ project.url }}" target="_blank">{{ project.url | remove: "https://" }}</a>{% endif %}</b></h5>
+    {% if project.description %}<h6 class="w3-text-teal"><i class="fa fa-info-circle fa-fw w3-margin-right"></i>{{ project.description }}</h6>{% endif %}
+    {% if project.date %}<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{ project.date }}</h6>{% endif %}
     <ul>
-      <li>A <b>React</b> app that glues together the <b>Clerk.dev</b> and <b>Stripe</b> SDKs with an <b>Express API</b>.</li>
-      <li>Coupled with a <b>Jekyll</b> landing page and blog, hosted on Digital Ocean behind a <b>Nginx</b> reverse proxy.</li>
-      <li>Authored <b>Docker Compose</b> files to manage the entire stack and dependencies.</li>
-    </ul> 
-    <hr>
-  </div>
-  <div class="w3-container">
-    <h5 class="w3-opacity"><b>AI Chat Bot – GPT2</b></h5>
-    <h6 class="w3-text-teal"><i class="fa fa-info-circle fa-fw w3-margin-right"></i>Starbucks AI Barista</h6>
-    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2021</h6>
-    <ul>
-      <li>Trained and fine-tuned custom <b>GPT2</b> models to prompt users with product descriptions according to distinct
-        personality archetypes.</li>
-      <li>Parsed model outputs using <b>sentiment analysis</b> to ensure quality responses.</li>
-      <li>Integrated <b>Thompson Sampling</b> to match a user with a specific model based on their likes and dislikes.</li>
-      <li>Wrapped functionality within a <b>React</b> web page and an <b>Express API</b> to provide a frictionless user experience.</li>
-    </ul> 
-    <hr>
-  </div>
-  <div class="w3-container">
-    <h5 class="w3-opacity"><b>Custom Home Server – Debian/Proxmox</b></h5>
-    <ul>
-      <li>A digital playground for hosting my own apps and experimenting with interesting software and tools.</li>
-      <li>Managing <b>RAID</b> storage arrays, <b>virtual machines</b>, and various home-automation services.</li>
+      {% for item in project.highlights %}
+      <li>{{ item }}</li>
+      {% endfor %}
     </ul>
+    {% unless forloop.last %}<hr>{% endunless %}
   </div>
+  {% endfor %}
 </div>
 
 <div class="w3-container w3-card w3-white">
   <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Education</h2>
+  {% for edu in site.data.resume.education %}
   <div class="w3-container">
-    <h5 class="w3-opacity"><b>Central Washington University</b></h5>
-    <h5 class="w3-opacity"><b>B.S. Computer Science</b></h5>
-    <h6 class="w3-text-teal"><i class="fa fa-check fa-fw w3-margin-right"></i>GPA: 3.6</h6>
+    <h5 class="w3-opacity"><b>{{ edu.school }}</b></h5>
+    <h5 class="w3-opacity"><b>{{ edu.degree }}</b></h5>
+    {% if edu.gpa %}<h6 class="w3-text-teal"><i class="fa fa-check fa-fw w3-margin-right"></i>GPA: {{ edu.gpa }}</h6>{% endif %}
   </div>
+  {% endfor %}
 </div>
-
-
-
-  
-

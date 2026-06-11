@@ -1,0 +1,57 @@
+name: Generate Resume PDF
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - '_data/resume.yaml'
+      - 'resume.html'
+      - '_layouts/resume.html'
+      - 'public/css/resume.css'
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Generate PDF from resume page
+        run: |
+          npx http-server _site -p 8080 &
+          sleep 2
+          node -e "
+          const puppeteer = require('puppeteer');
+          (async () => {
+            const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
+            const page = await browser.newPage();
+            await page.goto('http://localhost:8080/resume/', { waitUntil: 'networkidle0' });
+            await page.pdf({
+              path: 'public/resume.pdf',
+              format: 'Letter',
+              margin: { top: '0.25in', bottom: '0.25in', left: '0in', right: '0in' },
+              printBackground: true
+            });
+            await browser.close();
+            console.log('PDF generated successfully');
+          })();
+          "
+
+      - name: Commit PDF if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/resume.pdf
+          git diff --cached --quiet || (git commit -m "Auto-generate resume PDF [skip ci]" && git push)

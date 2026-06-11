@@ -1,0 +1,75 @@
+name: Jacob Jones
+title: Full-Stack Software Engineer
+location: Spokane, Washington
+email: jj@jacobjones.io
+website: jacobjones.io
+linkedin: https://www.linkedin.com/in/truejacobjones/
+github: https://github.com/truejacobjones
+
+experience:
+  - title: Software Engineer
+    company: SafeRideHealth
+    url: https://www.saferidehealth.com
+    description: Transportation Orchestration Platform
+    start: July 2023
+    end: Present
+    highlights:
+      - "Microservices Architecture: Key player in efforts to scale and optimize our microservices architecture."
+      - "Laravel Development: Developed new features and resolved numerous bugs in <b>Laravel</b> ensuring the platform meets strict service level agreements."
+      - "Front-end Development: Developed and maintained user interfaces using <b>React</b>, often involving complex state management with technologies such as <b>Redux</b>, <b>Pusher</b>, and <b>web workers</b>."
+      - "Technical Debt Reduction: Took the initiative to address technical debt by standardizing the local development environment across the team. Implemented <b>Docker</b>-based solutions to ensure consistency, making it easier for developers to set up and work in a uniform environment."
+
+  - title: Software Engineer II
+    company: Juno Live
+    url: https://www.junolive.com
+    description: Digital Events/Community Platform
+    start: March 2021
+    end: April 2023
+    highlights:
+      - "Authored an extensive <b>analytics</b> & reporting <b>API</b> that performs intricate <b>SQL</b> queries on <b>AWS Timestream</b>. This powers an extensive dashboard consisting of various graphs, metrics, and a customizable report builder."
+      - "Developed a configurable <b>Oauth SSO</b> solution in <b>PHP</b> to interface with numerous identity providers."
+      - "Wrote several <b>Python</b> modules to sync client data from various content management systems, which was orchestrated by <b>AWS Elastic Container Service</b> and <b>Terraform</b> config files."
+      - "Aided the development of generic <b>REST APIs</b> using <b>Django</b> that allow clients to manage their data, slashing the client integration work load by <b>nearly 50%</b>."
+      - "Managed and debugged various services and components of infrastructure in <b>AWS</b> such as <b>ECS, CloudFront, API Gateway, CloudWatch, Lambda, S3, SQS, Aurora, DynamoDB</b>."
+
+  - title: Freelance Software Engineer
+    company: The Man Shops
+    url: https://www.themanshops.com
+    description: White-Label Point of Sale System
+    start: January 2018
+    end: March 2021
+    highlights:
+      - "Worked closely with salon employees, managers, and stakeholders to design and produce a contemporary user interface that streamlines business procedures using <b>JavaFX</b>."
+      - "Assisted in the architecture of this system from the ground up which now serves <b>thousands of transactions</b> across a dozen salons every single day."
+      - "Wrote business-critical reporting modules including payroll, taxes, commission, and tips."
+      - "Automated hundreds of hours of daily work by developing integrations with the services Paychex, Netspend, and QuickBooks."
+
+projects:
+  - title: Full-Stack Web Application
+    name: RetainUR
+    url: https://www.retainur.com
+    description: Credit Card Management
+    date: In Progress
+    highlights:
+      - "A <b>React</b> app that glues together the <b>Clerk.dev</b> and <b>Stripe</b> SDKs with an <b>Express API</b>."
+      - "Coupled with a <b>Jekyll</b> landing page and blog, hosted on Digital Ocean behind a <b>Nginx</b> reverse proxy."
+      - "Authored <b>Docker Compose</b> files to manage the entire stack and dependencies."
+
+  - title: "AI Chat Bot – GPT2"
+    description: Starbucks AI Barista
+    date: "2021"
+    highlights:
+      - "Trained and fine-tuned custom <b>GPT2</b> models to prompt users with product descriptions according to distinct personality archetypes."
+      - "Parsed model outputs using <b>sentiment analysis</b> to ensure quality responses."
+      - "Integrated <b>Thompson Sampling</b> to match a user with a specific model based on their likes and dislikes."
+      - "Wrapped functionality within a <b>React</b> web page and an <b>Express API</b> to provide a frictionless user experience."
+
+  - title: "Custom Home Server – Debian/Proxmox"
+    highlights:
+      - "A digital playground for hosting my own apps and experimenting with interesting software and tools."
+      - "Managing <b>RAID</b> storage arrays, <b>virtual machines</b>, and various home-automation services."
+
+education:
+  - school: Central Washington University
+    degree: B.S. Computer Science
+    gpa: "3.6"
