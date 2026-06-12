@@ -11,5 +11,7 @@
       {{ content }}
     </div>
 
+    <script>window.resumeData = {{ site.data.resume | jsonify }};</script>
+    <script src="/public/js/resume-pdf.js"></script>
   </body>
 </html>
