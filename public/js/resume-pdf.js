@@ -1,5 +1,5 @@
 (function () {
-  var JSPDF_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js';
+  var JSPDF_CDN = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.3/jspdf.umd.min.js';
 
   function parseRichText(html) {
     var segments = [];
